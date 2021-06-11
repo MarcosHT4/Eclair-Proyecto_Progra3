@@ -1,0 +1,2 @@
+rootProject.name = "Eclair_HospitalSearcher"
+include ':app'
