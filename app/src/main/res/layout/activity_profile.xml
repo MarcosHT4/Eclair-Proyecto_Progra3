@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".ProfileActivity">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="64dp"
+        android:tint="@color/menuIconos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_profile_profile" />
+
+    <TextView
+        android:id="@+id/textViewFullNameProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="15dp"
+        android:text="Full Name"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <EditText
+        android:id="@+id/editTextDateProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="date"
+        android:hint = "Date of Birth"
+        android:clickable="false"
+        android:focusable = "false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFullNameProfile" />
+
+    <DatePicker
+
+        android:id="@+id/datePickerProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:datePickerMode="calendar"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDateProfile" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="29dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="16dp"
+        android:tint="@color/menuIconos"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextDateProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/icon_calendar" />
+
+    <Spinner
+        android:id="@+id/spinnerBloodType"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDateProfile" />
+
+    <ImageView
+        android:id="@+id/iconBloodType"
+        android:layout_width="23dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="4dp"
+        android:tint="@color/menuIconos"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerBloodType"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/icon_blood_type" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint ="E-mail"
+        android:inputType="textEmailAddress"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerBloodType"
+        tools:layout_editor_absoluteX="102dp" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="29dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="16dp"
+        android:tint="@color/menuIconos"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTextEmailAddress4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/icon_email" />
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint = "Phone"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress4" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="29dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="16dp"
+        android:tint="@color/menuIconos"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/icon_phone" />
+
+    <Button
+        android:id="@+id/buttonSaveChanges"
+        android:layout_width="136dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="32dp"
+        android:text="Save Changes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+
+    <Button
+        android:id="@+id/buttonResetPassword"
+        android:layout_width="134dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="60dp"
+        android:text="Reset Password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
