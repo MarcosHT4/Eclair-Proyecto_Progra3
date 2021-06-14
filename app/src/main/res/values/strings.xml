@@ -37,4 +37,83 @@
 
     </string-array>
 
+    <string name="appointment_1">Appointment 1</string>
+    <string name="appointment_2">Appointment 2</string>
+    <string name="appointment_3">Appointment 3</string>
+    <string name="appointment_4">Appointment 4</string>
+    <string name="appointment_5">Appointment 5</string>
+    <string name="appointment_6">Appointment 6</string>
+
+    <string-array name="appointment_1">
+
+        <item>Hospital:</item>
+        <item>Doctor:</item>
+        <item>Date:</item>
+        <item>Hour:</item>
+        <item>Room:</item>
+        <item>Reason:</item>
+
+
+    </string-array>
+
+    <string-array name="appointment_2">
+
+        <item>Hospital:</item>
+        <item>Doctor:</item>
+        <item>Date:</item>
+        <item>Hour:</item>
+        <item>Room:</item>
+        <item>Reason:</item>
+
+
+    </string-array>
+
+    <string-array name="appointment_3">
+
+        <item>Hospital:</item>
+        <item>Doctor:</item>
+        <item>Date:</item>
+        <item>Hour:</item>
+        <item>Room:</item>
+        <item>Reason:</item>
+
+
+    </string-array>
+
+    <string-array name="appointment_4">
+
+        <item>Hospital:</item>
+        <item>Doctor:</item>
+        <item>Date:</item>
+        <item>Hour:</item>
+        <item>Room:</item>
+        <item>Reason:</item>
+
+
+    </string-array>
+
+    <string-array name="appointment_5">
+
+        <item>Hospital:</item>
+        <item>Doctor:</item>
+        <item>Date:</item>
+        <item>Hour:</item>
+        <item>Room:</item>
+        <item>Reason:</item>
+
+
+    </string-array>
+
+    <string-array name="appointment_6">
+
+        <item>Hospital:</item>
+        <item>Doctor:</item>
+        <item>Date:</item>
+        <item>Hour:</item>
+        <item>Room:</item>
+        <item>Reason:</item>
+
+
+    </string-array>
+
 </resources>
