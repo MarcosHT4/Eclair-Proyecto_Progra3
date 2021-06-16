@@ -12,10 +12,11 @@ class MenuActivity : AppCompatActivity() {
     var imageHospitalSearch: ImageView? = null
     var imageEmergency: ImageView? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-
+        var fullNameMenu = intent.getStringExtra("fullNameLogIn")
         init()
 
         imageAppointments?.setOnClickListener{
