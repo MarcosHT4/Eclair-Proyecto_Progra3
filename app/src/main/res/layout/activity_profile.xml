@@ -22,11 +22,11 @@
         android:id="@+id/textViewFullNameProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
         android:layout_marginTop="15dp"
         android:text="Full Name"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
@@ -86,7 +86,7 @@
         app:srcCompat="@drawable/icon_blood_type" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress4"
+        android:id="@+id/editTextEmailProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -102,7 +102,7 @@
         android:layout_height="22dp"
         android:layout_marginBottom="16dp"
         android:tint="@color/menuIconos"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextEmailAddress4"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextEmailProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/icon_email" />
 
@@ -115,7 +115,7 @@
         android:hint = "Phone"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress4" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmailProfile" />
 
     <ImageView
         android:id="@+id/imageView11"
