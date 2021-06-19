@@ -25,12 +25,12 @@ class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-        emailMenu = intent.getStringExtra("emailLogIn").toString()
-        passwordMenu = intent.getStringExtra("passwordLogIn").toString()
-        dateOfBirthMenu = intent.getStringExtra("dateOfBirthLogIn").toString()
-        cityMenu = intent.getStringExtra("cityLogIn").toString()
-        genderMenu = intent.getStringExtra("genderLogIn").toString()
-        fullNameMenu = intent.getStringExtra("fullNameLogIn").toString()
+         emailMenu = intent.getStringExtra("emailLogIn").toString()
+         passwordMenu = intent.getStringExtra("passwordLogIn").toString()
+         dateOfBirthMenu = intent.getStringExtra("dateOfBirthLogIn").toString()
+         cityMenu = intent.getStringExtra("cityLogIn").toString()
+         genderMenu = intent.getStringExtra("genderLogIn").toString()
+         fullNameMenu = intent.getStringExtra("fullNameLogIn").toString()
         init()
 
         var toast = Toast.makeText(applicationContext, "Bienvenido $fullNameMenu!", Toast.LENGTH_LONG)
