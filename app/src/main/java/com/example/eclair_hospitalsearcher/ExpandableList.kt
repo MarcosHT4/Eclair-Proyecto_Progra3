@@ -9,15 +9,14 @@ import android.widget.BaseExpandableListAdapter
 
 class ExpandableList(var context: Context, var groups:MutableList<String>, var items:HashMap<String, MutableList<String>>): BaseExpandableListAdapter() {
 
+    var groupClickListener:((group: String) -> Unit)? = null
+
     override fun getGroupCount(): Int {
         return groups.size
     }
 
     override fun getChildrenCount(p0: Int): Int {
-
         return this.items.get(this.groups.get(p0))!!.size
-
-
     }
 
     override fun getGroup(p0: Int): Any {
@@ -25,9 +24,7 @@ class ExpandableList(var context: Context, var groups:MutableList<String>, var i
     }
 
     override fun getChild(p0: Int, p1: Int): Any {
-
         return this.items.get(this.groups.get(p0))!!.get(p1)
-
     }
 
     override fun getGroupId(p0: Int):Long  {
@@ -48,35 +45,28 @@ class ExpandableList(var context: Context, var groups:MutableList<String>, var i
         if(p2 == null) {
             val layoutInflater:LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             p2 = layoutInflater.inflate((R.layout.layout_list_group_appointments), null)
-
         }
 
         var text:TextView = p2!!.findViewById(R.id.parent_list)
         text.setText(textGroup)
+        p2
         return p2
-
     }
 
     override fun getChildView(p0: Int, p1: Int, p2: Boolean, p3: View?, p4: ViewGroup?): View {
         var p3 = p3
         var textItem = getChild(p0,p1) as String
         if(p3 == null) {
-
             val layoutInflater:LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             p3 = layoutInflater.inflate(R.layout.layout_list_item_appointments, null)
-
         }
 
         var text:TextView = p3!!.findViewById(R.id.child_list)
         text.setText(textItem)
         return p3
-
-
     }
 
     override fun isChildSelectable(p0: Int, p1: Int): Boolean {
         return true
     }
-
-
 }

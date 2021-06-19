@@ -2,7 +2,11 @@ package com.example.eclair_hospitalsearcher
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ExpandableListView
+import android.widget.Toast
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 
 class AppointmentsActivity : AppCompatActivity() {
 
@@ -11,22 +15,35 @@ class AppointmentsActivity : AppCompatActivity() {
     var groups:MutableList<String> = ArrayList()
     var items:HashMap<String, MutableList<String>> = HashMap<String, MutableList<String>>()
     var adapter:ExpandableList? = null
-
+    var buttonPrueba: Button? = null
+    var tabLayoutAppointments: TabLayout? = null
+    var viewPaggerAppointments: ViewPager? = null
+    var contadorGrupos: Int = 1
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_appointments)
-
         expandablelist = findViewById(R.id.appointmentsViewExpandable)
         adapter = ExpandableList(this, groups, items)
         expandablelist?.setAdapter(adapter)
         init()
+        tabLayoutAppointments?.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                when(tab?.position) {
 
+                }
+            }
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+            }
 
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+        })
 
+        buttonPrueba?.setOnClickListener{
 
+        }
     }
 
     fun init() {
