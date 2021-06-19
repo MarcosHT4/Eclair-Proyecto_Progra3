@@ -8,7 +8,7 @@
     tools:context=".LogInActivity">
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+        android:id="@+id/editTextLogInPassword"
         android:layout_width="393dp"
         android:layout_height="42dp"
         android:layout_marginStart="8dp"
@@ -20,14 +20,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/editTextLogInEmail"
         android:layout_width="387dp"
         android:layout_height="42dp"
         android:layout_marginStart="8dp"
         android:ems="10"
         android:hint="E-mail"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress2"
+        app:layout_constraintBottom_toTopOf="@+id/editTextLogInPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.698" />
@@ -41,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLogInPassword"
         app:srcCompat="@drawable/icon_logo2" />
 
     <Button

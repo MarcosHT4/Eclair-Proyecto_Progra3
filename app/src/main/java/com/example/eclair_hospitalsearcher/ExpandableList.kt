@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.*
 import android.widget.BaseExpandableListAdapter
 
-class ExpandableList(var context: Context, var groups:MutableList<String>, var items:HashMap<String, MutableList<String>>): BaseExpandableListAdapter() {
+class ExpandableList(var context: Context, var groups:MutableList<String>, var items:HashMap<String, MutableList<String>>, var appointmentsActivity: AppointmentsActivity): BaseExpandableListAdapter() {
+
+    var groupClickListener: ((group: String)-> Unit)? = null
 
     override fun getGroupCount(): Int {
         return groups.size
@@ -53,6 +55,21 @@ class ExpandableList(var context: Context, var groups:MutableList<String>, var i
 
         var text:TextView = p2!!.findViewById(R.id.parent_list)
         text.setText(textGroup)
+
+
+        if(appointmentsActivity.tabLayoutAppointments!!.getTabAt(1)!!.isSelected) {
+
+            p2.setOnClickListener {
+
+                groupClickListener?.invoke(getGroup(p0) as String)
+
+            }
+
+        }
+
+
+
+
         return p2
 
     }
@@ -76,6 +93,12 @@ class ExpandableList(var context: Context, var groups:MutableList<String>, var i
 
     override fun isChildSelectable(p0: Int, p1: Int): Boolean {
         return true
+    }
+
+    fun setOnGroupClickListener(clickListener:(group:String)->Unit) {
+
+        groupClickListener = clickListener
+
     }
 
 

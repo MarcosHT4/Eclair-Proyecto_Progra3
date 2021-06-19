@@ -18,6 +18,14 @@ class ProfileActivity : AppCompatActivity() {
     var spinnerBloodType: Spinner? = null
     var buttonSaveChanges:Button? = null
     var buttonChangePassword:Button? = null
+    var editTextDateBirth:EditText? = null
+    var emailTextProfile:EditText? = null
+    var fullNameTextView:TextView? = null
+    var editTextPhone:EditText? = null
+    var reqCode = 555
+    var password:String = ""
+
+
 
     @TargetApi(Build.VERSION_CODES.N)
 
@@ -25,6 +33,21 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
         init()
+        var fullNameProfile = intent.getStringExtra("fullNameMenu")
+        var dateOfBirthProfile = intent.getStringExtra("dateOfBirthMenu")
+        var emailProfile = intent.getStringExtra("emailMenu")
+        var phone = intent.getStringExtra("phone")
+        var bloodType = intent.getIntExtra("bloodType", 0)
+        password = intent.getStringExtra("passwordMenu").toString()
+        fullNameTextView?.setText(fullNameProfile)
+        editTextDateBirth?.setText(dateOfBirthProfile)
+        emailTextProfile?.setText(emailProfile)
+        spinnerBloodType?.setSelection(bloodType)
+        editTextPhone?.setText(phone)
+
+
+
+
         editTextProfile?.setOnClickListener {
 
             showCalendar()
@@ -40,13 +63,26 @@ class ProfileActivity : AppCompatActivity() {
 
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinnerBloodType?.adapter = adapter
+            spinnerBloodType?.setSelection(bloodType)
 
         }
 
         buttonSaveChanges?.setOnClickListener {
 
-            val intent = Intent(this, MenuActivity::class.java)
-            startActivity(intent)
+            val intent = Intent()
+            var newDateOfBirth = editTextDateBirth?.text.toString()
+            var newEmail = emailTextProfile?.text.toString()
+            var newPhone = editTextPhone?.text.toString()
+            var newBloodType = spinnerBloodType?.selectedItemPosition
+            var newPassword = password
+
+
+            intent.putExtra("newDateOfBirth", newDateOfBirth)
+            intent.putExtra("newEmail", newEmail)
+            intent.putExtra("newPhone", newPhone)
+            intent.putExtra("newBloodType", newBloodType)
+            intent.putExtra("newPassword", newPassword)
+            setResult(RESULT_OK, intent)
             finish()
 
         }
@@ -54,7 +90,9 @@ class ProfileActivity : AppCompatActivity() {
         buttonChangePassword?.setOnClickListener {
 
             val intent = Intent(this, ResetPasswordActivity::class.java)
-            startActivity(intent)
+            intent.putExtra("currentPassword", password)
+            startActivityForResult(intent, reqCode)
+
 
 
         }
@@ -81,7 +119,22 @@ class ProfileActivity : AppCompatActivity() {
         spinnerBloodType = findViewById(R.id.spinnerBloodType)
         buttonChangePassword = findViewById(R.id.buttonResetPassword)
         buttonSaveChanges = findViewById(R.id.buttonSaveChanges)
+        editTextDateBirth = findViewById(R.id.editTextDateProfile)
+        emailTextProfile = findViewById(R.id.editTextEmailProfile)
+        fullNameTextView = findViewById(R.id.textViewFullNameProfile)
+        editTextPhone = findViewById(R.id.editTextPhone)
 
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == reqCode) {
+
+            password = data?.getStringExtra("newPassword").toString()
+
+        }
     }
 
 
