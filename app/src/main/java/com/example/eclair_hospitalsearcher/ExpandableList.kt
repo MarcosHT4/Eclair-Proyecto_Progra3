@@ -56,22 +56,29 @@ class ExpandableList(var context: Context, var groups:MutableList<String>, var i
         var text:TextView = p2!!.findViewById(R.id.parent_list)
         text.setText(textGroup)
 
-
-        if(appointmentsActivity.tabLayoutAppointments!!.getTabAt(1)!!.isSelected) {
-
             p2.setOnClickListener {
 
-                groupClickListener?.invoke(getGroup(p0) as String)
+                if(appointmentsActivity.tabLayoutAppointments!!.getTabAt(1)!!.isSelected) {
+
+                    groupClickListener?.invoke(getGroup(p0) as String)
+
+                } else {
+
+                    if((p3 as ExpandableListView).isGroupExpanded(p0)) {
+
+                        (p3 as ExpandableListView).collapseGroup(p0)
+
+                    } else {
+
+                        (p3 as ExpandableListView).expandGroup(p0, true)
+
+                    }
+
+
+                }
 
             }
-
-        }
-
-
-
-
         return p2
-
     }
 
     override fun getChildView(p0: Int, p1: Int, p2: Boolean, p3: View?, p4: ViewGroup?): View {

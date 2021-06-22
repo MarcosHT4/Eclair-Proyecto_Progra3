@@ -54,16 +54,11 @@ class AppointmentsActivity : AppCompatActivity() {
 
                 groups.remove(it)
                 adapter?.notifyDataSetChanged()
-
+                contadorGrupos--
             } else {
-
-
-
+                adapter?.notifyDataSetChanged()
             }
         }
-
-
-
     }
 
     fun addAppointement() {
@@ -86,7 +81,6 @@ class AppointmentsActivity : AppCompatActivity() {
     }
 
     fun deleteAppointment() {
-
 
 
     }
