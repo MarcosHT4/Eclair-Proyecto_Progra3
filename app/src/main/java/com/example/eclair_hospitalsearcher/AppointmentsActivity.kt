@@ -54,9 +54,11 @@ class AppointmentsActivity : AppCompatActivity() {
 
                 groups.remove(it)
                 adapter?.notifyDataSetChanged()
+                contadorGrupos--
 
             } else {
 
+                adapter?.notifyDataSetChanged()
 
 
             }

@@ -10,6 +10,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class OptionsRecyclerViewAdapter(val context:Context, val list:List<HospitalOption>):RecyclerView.Adapter<OptionsViewHolder>() {
+
+    var funcionMenuOptionClick: ((hospitalOption:HospitalOption) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OptionsViewHolder {
 
         val layoutInflater = LayoutInflater.from(context)
@@ -21,12 +24,23 @@ class OptionsRecyclerViewAdapter(val context:Context, val list:List<HospitalOpti
     override fun onBindViewHolder(holder: OptionsViewHolder, position: Int) {
 
         holder.bind(list[position])
+        holder.itemView.setOnClickListener {
+
+            funcionMenuOptionClick?.invoke(list[position])
+
+        }
 
     }
 
     override fun getItemCount(): Int {
 
         return list.size
+
+    }
+
+    fun setOnMenuOptionClickListener(funcion:(hospitalOption:HospitalOption) ->Unit) {
+
+        funcionMenuOptionClick = funcion
 
     }
 
