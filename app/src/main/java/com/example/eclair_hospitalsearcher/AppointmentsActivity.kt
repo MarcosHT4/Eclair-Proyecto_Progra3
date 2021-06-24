@@ -2,7 +2,16 @@ package com.example.eclair_hospitalsearcher
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ExpandableListView
+import android.widget.ImageView
+import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.view.get
+import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
 
 class AppointmentsActivity : AppCompatActivity() {
 
@@ -11,6 +20,20 @@ class AppointmentsActivity : AppCompatActivity() {
     var groups:MutableList<String> = ArrayList()
     var items:HashMap<String, MutableList<String>> = HashMap<String, MutableList<String>>()
     var adapter:ExpandableList? = null
+    var buttonPrueba: Button? = null
+    var tabLayoutAppointments: TabLayout? = null
+    var contadorGrupos:Int = 1
+    var cancelImage:ImageView? = null
+    var flag = true
+    val databaseController = DatabaseController(this)
+
+    val listAppointments = mutableListOf(
+        Appointment("Hospital 1", "Gerardo","123", "123", "456", "789" ),
+        Appointment("Hospital 2", "Gerardoxxxnn","17823", "1234543", "456", "789" ),
+        Appointment("Hospital 3", "Gerarddscdsdcso","12cdscs3", "12dv3", "4dv56", "78dv9" )
+
+
+    )
 
 
 
@@ -20,16 +43,76 @@ class AppointmentsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_appointments)
 
         expandablelist = findViewById(R.id.appointmentsViewExpandable)
-        adapter = ExpandableList(this, groups, items)
+
+        adapter = ExpandableList(this, listAppointments,  this)
+
         expandablelist?.setAdapter(adapter)
         init()
 
+
+        buttonPrueba?.setOnClickListener {
+
+            if(tabLayoutAppointments!!.getTabAt(0)!!.isSelected) {
+                addAppointement()
+            }
+        }
+
+        adapter?.setOnGroupClickListener {
+
+            if(tabLayoutAppointments!!.getTabAt(1)!!.isSelected) {
+
+                listAppointments.remove(it)
+                adapter?.notifyDataSetChanged()
+                contadorGrupos--
+
+            } else {
+
+                adapter?.notifyDataSetChanged()
+
+
+            }
+        }
+        listAppointments.add(databaseController.getAppointments())
+        adapter?.notifyDataSetChanged()
+
+
+
+    }
+
+    fun addAppointement() {
+
+        groups.add("Appointment $contadorGrupos")
+        var array = arrayOf("Hospital:", "Doctor:", "Date:", "Hour:", "Room:", "Reason:")
+        var list:MutableList<String> = ArrayList()
+        array.forEach {
+
+            list.add(it)
+
+        }
+
+        var contadorGruposReal = contadorGrupos-1
+
+        items.put(groups.get(contadorGruposReal), list)
+        adapter?.notifyDataSetChanged()
+        contadorGrupos++
+
+    }
+
+    fun deleteAppointment() {
 
 
 
     }
 
     fun init() {
+
+        buttonPrueba = findViewById(R.id.buttonTest)
+        tabLayoutAppointments = findViewById(R.id.tabLayoutAppointments)
+        cancelImage = findViewById(R.id.imageViewCancel)
+        // viewPagerAppointments = findViewById(R.id.viewPager)
+
+
+/*
 
         groups.add(getString(R.string.appointment_1))
         groups.add(getString(R.string.appointment_2))
@@ -42,6 +125,7 @@ class AppointmentsActivity : AppCompatActivity() {
         var list1:MutableList<String> = ArrayList()
 
         array = resources.getStringArray(R.array.appointment_1)
+
 
         array.forEach{
 
@@ -111,7 +195,7 @@ class AppointmentsActivity : AppCompatActivity() {
         items.put(groups.get(4), list5)
         items.put(groups.get(5), list6)
         adapter?.notifyDataSetChanged()
-
+*/
 
 
 

@@ -10,8 +10,8 @@ import android.widget.Spinner
 class LogInActivity : AppCompatActivity() {
 
     var buttonLogIn: Button? = null
-    var logInInputEmail: EditText? = null
-    var logInInputPassword: EditText? = null
+    var logInInputEmail:EditText? = null
+    var logInInputPassword:EditText? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,13 +23,14 @@ class LogInActivity : AppCompatActivity() {
         var cityLogIn = intent.getStringExtra("citySignUp")
         var genderLogIn = intent.getStringExtra("genderSignUp")
         init()
-
         buttonLogIn = findViewById(R.id.button2LogIn)
 
         buttonLogIn?.setOnClickListener {
-            if (emailLogIn!!.equals(logInInputEmail?.text.toString()) && passwordLogIn.equals(logInInputPassword?.text.toString())){
+
+            if(emailLogIn!!.equals(logInInputEmail?.text.toString()) && passwordLogIn!!.equals(logInInputPassword?.text.toString())) {
 
                 val intent = Intent(this, MenuActivity::class.java)
+
 
                 intent.putExtra("emailLogIn", emailLogIn)
                 intent.putExtra("passwordLogIn", passwordLogIn)
@@ -37,24 +38,30 @@ class LogInActivity : AppCompatActivity() {
                 intent.putExtra("dateOfBirthLogIn", dateOfBirthLogIn)
                 intent.putExtra("cityLogIn", cityLogIn)
                 intent.putExtra("genderLogIn", genderLogIn)
+
                 startActivity(intent)
-
-
             } else {
 
-                var toast = Toast.makeText(applicationContext,"E-mail o contraseña incorrecta",Toast.LENGTH_SHORT)
+                var toast = Toast.makeText(applicationContext, "E-mail o contraseña incorrecta", Toast.LENGTH_SHORT)
                 toast.show()
+
+            }
+
+
 
             }
 
         }
 
+    fun init() {
 
-
-    }
-    fun init(){
         logInInputEmail = findViewById(R.id.editTextLogInEmail)
         logInInputPassword = findViewById(R.id.editTextLogInPassword)
+
     }
 
+
+
 }
+
+

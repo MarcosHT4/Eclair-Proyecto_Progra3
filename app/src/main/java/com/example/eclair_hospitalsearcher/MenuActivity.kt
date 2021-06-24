@@ -16,9 +16,15 @@ class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
+        var emailMenu = intent.getStringArrayExtra("emailLogIn")
+        var passwordMenu = intent.getStringArrayExtra("passwordLogIn")
+        var dateOfBirthMenu = intent.getStringArrayExtra("dateOfBirthLogIn")
+        var cityMenu = intent.getStringArrayExtra("cityLogIn")
+        var genderMenu = intent.getStringArrayExtra("genderLogIn")
         var fullNameMenu = intent.getStringExtra("fullNameLogIn")
         init()
-
+        var toast = Toast.makeText(applicationContext,"Bienvenido $fullNameMenu",Toast.LENGTH_LONG)
+        toast.show()
         imageAppointments?.setOnClickListener{
 
             val intent = Intent(this, AppointmentsActivity::class.java)
@@ -29,6 +35,12 @@ class MenuActivity : AppCompatActivity() {
         imageProfile?.setOnClickListener{
 
             val intent = Intent(this, ProfileActivity::class.java)
+            intent.putExtra("emailMenu", emailMenu)
+            intent.putExtra("passwordMenu", passwordMenu)
+            intent.putExtra("fullNameMenu", fullNameMenu)
+            intent.putExtra("dateOfBirthMenu", dateOfBirthMenu)
+            intent.putExtra("cityMenu", cityMenu)
+            intent.putExtra("genderMenu", genderMenu)
             startActivity(intent)
 
         }

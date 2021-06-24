@@ -37,6 +37,18 @@
 
     </string-array>
 
+<string-array name="reason_appointments">
+
+    <item> Covid-19</item>
+    <item> Standard Consultation</item>
+    <item> Long Consultation</item>
+    <item> Mental Health</item>
+    <item> Medical Certificate</item>
+    <item> General Check</item>
+    <item> Eye Check</item>
+
+</string-array>
+
     <string name="appointment_1">Appointment 1</string>
     <string name="appointment_2">Appointment 2</string>
     <string name="appointment_3">Appointment 3</string>
@@ -115,5 +127,7 @@
 
 
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
