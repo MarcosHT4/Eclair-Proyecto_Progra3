@@ -21,6 +21,7 @@ class SignUpActivity : AppCompatActivity() {
     var dateOfBirthInfo:String = ""
     var cityInfo:String = ""
     var genderInfo:String = ""
+    var databaseController = DatabaseController(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -41,6 +42,9 @@ class SignUpActivity : AppCompatActivity() {
             cityInfo = spinnerCity?.selectedItem.toString()
             genderInfo = spinnerGender?.selectedItem.toString()
 
+            val newUser = User(emailInfo, passwordInfo, fullNameInfo, dateOfBirthInfo, cityInfo, genderInfo,"A+", +591)
+            databaseController.addUser(newUser)
+
             val intent = Intent(this, LogInActivity::class.java)
             intent.putExtra("emailSignUp", emailInfo)
             intent.putExtra("passwordSignUp", passwordInfo)
@@ -48,6 +52,8 @@ class SignUpActivity : AppCompatActivity() {
             intent.putExtra("dateOfBirthSignUp", dateOfBirthInfo)
             intent.putExtra("citySignUp", cityInfo)
             intent.putExtra("genderSignUp", genderInfo)
+
+
 
 
             startActivity(intent)

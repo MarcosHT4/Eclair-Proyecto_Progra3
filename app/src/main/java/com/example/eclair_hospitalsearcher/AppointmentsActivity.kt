@@ -26,14 +26,8 @@ class AppointmentsActivity : AppCompatActivity() {
     var cancelImage:ImageView? = null
     var flag = true
     val databaseController = DatabaseController(this)
-
-    val listAppointments = mutableListOf(
-        Appointment("Hospital 1", "Gerardo","123", "123", "456", "789" ),
-        Appointment("Hospital 2", "Gerardoxxxnn","17823", "1234543", "456", "789" ),
-        Appointment("Hospital 3", "Gerarddscdsdcso","12cdscs3", "12dv3", "4dv56", "78dv9" )
-
-
-    )
+    var listAppointments = mutableListOf<Appointment>()
+    var listOfDeleteAppointments = mutableListOf<Appointment>()
 
 
 
@@ -43,6 +37,8 @@ class AppointmentsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_appointments)
 
         expandablelist = findViewById(R.id.appointmentsViewExpandable)
+
+        listAppointments = databaseController.getAppointments()
 
         adapter = ExpandableList(this, listAppointments,  this)
 
@@ -65,6 +61,7 @@ class AppointmentsActivity : AppCompatActivity() {
                 adapter?.notifyDataSetChanged()
                 contadorGrupos--
 
+                listOfDeleteAppointments.add(it)
             } else {
 
                 adapter?.notifyDataSetChanged()
@@ -72,12 +69,21 @@ class AppointmentsActivity : AppCompatActivity() {
 
             }
         }
-        listAppointments.add(databaseController.getAppointments())
-        adapter?.notifyDataSetChanged()
-
-
-
     }
+
+    override fun onStop(){
+        super.onStop()
+        listOfDeleteAppointments.forEach{
+            databaseController.deleteAppointment(it)
+            updateAppointments()
+        }
+    }
+
+    fun updateAppointments(){
+        listAppointments = databaseController.getAppointments()
+        adapter?.notifyDataSetChanged()
+    }
+
 
     fun addAppointement() {
 

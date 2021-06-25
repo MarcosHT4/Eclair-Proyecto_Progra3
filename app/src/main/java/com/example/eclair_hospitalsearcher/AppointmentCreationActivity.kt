@@ -80,9 +80,10 @@ class AppointmentCreationActivity : AppCompatActivity() {
     }
     fun showCalendar(){
         val datePicker = DatePickerFragment({day, month, year -> onDateSelected(day, month, year)})
+        datePicker.show(supportFragmentManager, "datePicker")
     }
     fun onDateSelected(day:Int,month:Int,year:Int){
-        editTextAppointmentDateData?.setText("$day/$month/$year")
+        editTextAppointmentDateData?.setText("$day/${month+1}/$year")
     }
     fun init (){
         textViewAppointmentHospitalData = findViewById(R.id.textViewAppointmentsHospitalData )
