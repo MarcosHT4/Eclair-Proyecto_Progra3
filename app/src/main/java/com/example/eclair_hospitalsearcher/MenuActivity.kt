@@ -12,24 +12,14 @@ class MenuActivity : AppCompatActivity() {
     var imageHospitalSearch: ImageView? = null
     var imageEmergency: ImageView? = null
     val reqCode = 666
-    var emailMenu:String = ""
-    var passwordMenu:String = ""
-    var dateOfBirthMenu:String = ""
-    var cityMenu:String = ""
-    var genderMenu:String = ""
     var fullNameMenu:String = ""
-    var bloodType:Int = 0
-    var bloodTypeMenu:Int = 0
-    var phone:String = ""
-    var phoneMenu:String = ""
     var databaseController = DatabaseController(this)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-        emailMenu = intent.getStringExtra("emailLogIn").toString()
-        passwordMenu = intent.getStringExtra("passwordLogIn").toString()
+
         fullNameMenu = intent.getStringExtra("fullNameMenu").toString()
 
         init()

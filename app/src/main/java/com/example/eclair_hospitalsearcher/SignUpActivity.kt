@@ -39,28 +39,36 @@ class SignUpActivity : AppCompatActivity() {
 
         buttonSignUp?.setOnClickListener {
 
-            emailInfo = emailView?.text.toString()
-            passwordInfo = passwordView?.text.toString()
-            fullNameInfo = fullNameView?.text.toString()
-            userNameInfo = userNameView?.text.toString()
-            dateOfBirthInfo = dateOfBirthView?.text.toString()
-            cityInfo = spinnerCity?.selectedItem.toString()
-            genderInfo = spinnerGender?.selectedItem.toString()
+            if(isTextEmpty(emailView!!) || isTextEmpty(passwordView!!) || isTextEmpty(fullNameView!!) || isTextEmpty(userNameView!!) || isTextEmpty(dateOfBirthView!!)|| spinnerCity?.selectedItemPosition==0||spinnerGender?.selectedItemPosition==0 ) {
 
-            val newUser = User(emailInfo, passwordInfo, fullNameInfo, dateOfBirthInfo, cityInfo, genderInfo, 0, "+591", userNameInfo)
-            databaseController.addUser(newUser)
+                var toast = Toast.makeText(this, resources.getString(R.string.text_fields_not_filled), Toast.LENGTH_SHORT).show()
 
-            val intent = Intent(this, LogInActivity::class.java)
-            intent.putExtra("emailSignUp", emailInfo)
-            intent.putExtra("passwordSignUp", passwordInfo)
-            intent.putExtra("fullNameSignUp", fullNameInfo)
-            intent.putExtra("dateOfBirthSignUp", dateOfBirthInfo)
-            intent.putExtra("citySignUp", cityInfo)
-            intent.putExtra("genderSignUp", genderInfo)
+            } else {
 
+                emailInfo = emailView?.text.toString()
+                passwordInfo = passwordView?.text.toString()
+                fullNameInfo = fullNameView?.text.toString()
+                userNameInfo = userNameView?.text.toString()
+                dateOfBirthInfo = dateOfBirthView?.text.toString()
+                cityInfo = spinnerCity?.selectedItem.toString()
+                genderInfo = spinnerGender?.selectedItem.toString()
 
+                val newUser = User(emailInfo,
+                    passwordInfo,
+                    fullNameInfo,
+                    dateOfBirthInfo,
+                    cityInfo,
+                    genderInfo,
+                    0,
+                    "+591",
+                    userNameInfo)
+                databaseController.addUser(newUser)
 
-            startActivity(intent)
+                val intent = Intent(this, LogInActivity::class.java)
+                intent.putExtra("fullNameSignUp", fullNameInfo)
+                startActivity(intent)
+
+            }
 
 
 
@@ -88,15 +96,20 @@ class SignUpActivity : AppCompatActivity() {
 
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinnerGender?.adapter = adapter
+
         }
     }
     fun showCalendar() {
+
         val datePicker = DatePickerFragment({day, month, year -> onDateSelected(day, month, year)})
         datePicker.show(supportFragmentManager, "datePicker")
+
     }
 
     fun onDateSelected(day:Int, month:Int, year:Int) {
+
         dateOfBirthView?.setText("$day / ${month+1} / $year")
+
     }
 
     fun init() {
@@ -108,5 +121,22 @@ class SignUpActivity : AppCompatActivity() {
         fullNameView = findViewById(R.id.editTextSignUpFullName)
         dateOfBirthView = findViewById(R.id.editTextSignUpDateOfBirth)
         userNameView = findViewById(R.id.editTextUsernameSignUp)
+
+
     }
+
+    private fun isTextEmpty(et:EditText):Boolean {
+
+        if(et.text.toString().trim().length>0) {
+
+            return false
+
+        }
+
+        return true
+
+
+    }
+
+
 }

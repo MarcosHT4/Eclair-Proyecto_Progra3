@@ -60,7 +60,12 @@ class AppointmentCreationActivity : AppCompatActivity() {
             spinnerAppointmentReasonData?.adapter = adapter
 
         }
-        buttonCreateAppointmentData?.setOnClickListener{
+        buttonCreateAppointmentData?.setOnClickListener {
+            if (isTextEmpty(editTextAppointmentDateData!!) || isTextEmpty(
+                    editTextAppointmentHourData!!)) {
+                var toast = Toast.makeText(this, resources.getString(R.string.text_fields_not_filled), Toast.LENGTH_SHORT).show()
+            } else {
+
 
             var sendHospitalName = textViewAppointmentHospitalData?.text.toString()
             var sendDoctorName = textViewAppointmentDoctorData?.text.toString()
@@ -69,11 +74,19 @@ class AppointmentCreationActivity : AppCompatActivity() {
             var sendRoom = textViewAppointmentRoomData?.text.toString()
             var sendReason = spinnerAppointmentReasonData?.selectedItem.toString()
 
-            val sendAppointment = Appointment(sendHospitalName, sendDoctorName,sendDate, sendHour, sendRoom, sendReason)
+            val sendAppointment = Appointment(
+                sendHospitalName,
+                sendDoctorName,
+                sendDate,
+                sendHour,
+                sendRoom,
+                sendReason
+            )
             databaseController.addAppointment(sendAppointment)
             val intent = Intent(this, AppointmentsActivity::class.java)
             startActivity(intent)
             finish()
+        }
 
         }
 
@@ -93,5 +106,17 @@ class AppointmentCreationActivity : AppCompatActivity() {
         textViewAppointmentRoomData = findViewById(R.id.textViewAppointmentsRoomData)
         spinnerAppointmentReasonData = findViewById(R.id.spinnerAppointmentsReasonData)
         buttonCreateAppointmentData = findViewById(R.id.buttonSendAppointment)
+    }
+    private fun isTextEmpty(et:EditText):Boolean {
+
+        if(et.text.toString().trim().length>0) {
+
+            return false
+
+        }
+
+        return true
+
+
     }
 }

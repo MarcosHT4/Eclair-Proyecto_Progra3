@@ -124,7 +124,7 @@ class ProfileActivity : AppCompatActivity() {
 
     fun onDateSelected(day:Int, month:Int, year:Int) {
 
-        editTextProfile?.setText("$day / $month / $year")
+        editTextProfile?.setText("$day / ${month+1} / $year")
 
     }
 

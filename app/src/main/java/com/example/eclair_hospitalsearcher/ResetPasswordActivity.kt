@@ -21,8 +21,7 @@ class ResetPasswordActivity : AppCompatActivity() {
         var fullName = intent.getStringExtra("fullNameProfile")
         var currentUser = databaseController.getCurrentUser(fullName!!)
         var currentPassword = currentUser.password
-        var toast = Toast.makeText(applicationContext, currentPassword, Toast.LENGTH_SHORT)
-        toast.show()
+
         init() //DESGRACIADOOOOOOOOOOOO
 
         buttonSaveNewPassword = findViewById(R.id.buttonConfirmNewPassword)

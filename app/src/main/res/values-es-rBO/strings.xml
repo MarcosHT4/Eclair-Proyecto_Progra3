@@ -106,4 +106,7 @@
     <string name="adapter_expandable_list_reason">Motivo</string>
     <string name="username_sign_up">Nombre de usuario</string>
     <string name="username_log_in">Nombre de Usuario</string>
+    <string name="text_fields_not_filled">Por favor, llene todos los campos</string>
+    <string name="text_view_map_hospital">Mapa:</string>
+    <string name="google_maps_not_found">Por favor, asegurese de que tenga instalado Google Maps</string>
 </resources>

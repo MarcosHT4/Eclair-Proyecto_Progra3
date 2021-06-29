@@ -1,6 +1,7 @@
 package com.example.eclair_hospitalsearcher
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
@@ -15,6 +16,7 @@ class HospitalDescriptionActivity : AppCompatActivity() {
     var hospitalName:String? = null
     var appointmentsButton:FloatingActionButton? = null
     val defaultName = "James Cameron"
+    var imageViewMapHospital:ImageView?=null
     val listDoctors: List<String> = listOf("James Cameron", "Dallas Azahar", "Dr. House", "Dr. Vic", "Carolina Wieser", "Erick Saucedo", "Aaron Barrera", "William Osler", "Sigmud Freud", "Derek Styles", "Alexander Fleming")
 
 
@@ -22,11 +24,7 @@ class HospitalDescriptionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hospital_description)
 
-        imageHospital = findViewById(R.id.imageViewHeaderHospital)
-        imageRating = findViewById(R.id.imageViewRating)
-        phone = findViewById(R.id.textViewPhoneNumber)
-        location = findViewById(R.id.textViewLocationAddress)
-        appointmentsButton = findViewById(R.id.floatingButtonAppointment)
+        init()
         hospitalName = intent.getStringExtra("nameHospital")
 
 
@@ -34,6 +32,7 @@ class HospitalDescriptionActivity : AppCompatActivity() {
         var locationData = intent.getStringExtra("locationHospital")
         var imageHospitalData = intent.getIntExtra("photoHospital", 0)
         var ratingHospitalData = intent.getIntExtra("ratingHospital", 0)
+        var hospitalMapCoordenates=intent.getStringExtra("coordenatesMapHospital").toString()
 
         phone?.setText(phoneData.toString())
         location?.setText(locationData)
@@ -55,9 +54,23 @@ class HospitalDescriptionActivity : AppCompatActivity() {
 
         }
 
+        imageViewMapHospital?.setOnClickListener{
+            var hospitalTrueCoordenates= Uri.parse(hospitalMapCoordenates)
+            val intent=Intent(Intent.ACTION_VIEW,hospitalTrueCoordenates)
+            startActivity(intent)
+
+        }
 
 
 
+    }
+    fun init(){
+        imageHospital = findViewById(R.id.imageViewHeaderHospital)
+        imageRating = findViewById(R.id.imageViewRating)
+        phone = findViewById(R.id.textViewPhoneNumber)
+        location = findViewById(R.id.textViewLocationAddress)
+        imageViewMapHospital=findViewById(R.id.imageViewMapHospital)
+        appointmentsButton = findViewById(R.id.floatingButtonAppointment)
 
 
     }

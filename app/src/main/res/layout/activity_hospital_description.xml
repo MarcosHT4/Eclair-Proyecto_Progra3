@@ -8,47 +8,37 @@
     tools:context=".HospitalDescriptionActivity">
 
 
-
     <ImageView
         android:id="@+id/imageViewHeaderHospital"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="4dp"
         android:scaleType="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/image_clinica_intramedica" />
 
     <TextView
-        android:id="@+id/textViewPhone"
+        android:id="@+id/textViewLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="476dp"
-        android:text="@string/phone_hospitalDescription"
+        android:layout_marginTop="496dp"
+        android:text="@string/location_hospitalDescription"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageViewRating"
-        android:layout_width="219dp"
-        android:layout_height="97dp"
-        android:layout_marginTop="344dp"
-        app:layout_constraintStart_toEndOf="@+id/textViewRating"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_five_stars" />
-
     <TextView
         android:id="@+id/textViewRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="376dp"
+        android:layout_marginTop="296dp"
         android:text="@string/rating_hospitalDescription"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -60,7 +50,7 @@
         android:id="@+id/textViewPhoneNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="400dp"
         android:text="TextView"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,12 +59,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewLocation"
+        android:id="@+id/textViewPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="576dp"
-        android:text="@string/location_hospitalDescription"
+        android:layout_marginTop="396dp"
+        android:text="@string/phone_hospitalDescription"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -83,19 +73,29 @@
 
     <TextView
         android:id="@+id/textViewLocationAddress"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="580dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginEnd="20dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:paddingEnd="10dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
-        app:layout_constraintStart_toEndOf="@+id/textViewLocation"
-        app:layout_constraintTop_toTopOf="parent"
-        android:ellipsize="end"
-        android:maxLines="1"
+        app:layout_constraintHorizontal_bias="0.0"
 
-        />
+        app:layout_constraintStart_toEndOf="@+id/textViewLocation"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewRating"
+        android:layout_width="219dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="260dp"
+        app:layout_constraintStart_toEndOf="@+id/textViewRating"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_five_stars" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingButtonAppointment"
@@ -103,11 +103,34 @@
 
 
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="204dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/ic_baseline_add_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewPhoneNumber" />
+
+    <TextView
+        android:id="@+id/Map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/text_view_map_hospital"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLocation" />
+
+    <ImageView
+        android:id="@+id/imageViewMapHospital"
+        android:layout_width="29dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintStart_toEndOf="@+id/Map"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLocation"
+        app:srcCompat="@drawable/icon_maps_hospital" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

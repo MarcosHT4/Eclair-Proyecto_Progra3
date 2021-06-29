@@ -107,4 +107,7 @@
     <string name = "adapter_expandable_list_reason">Reason</string>
     <string name="username_sign_up">Username</string>
     <string name="username_log_in">Username</string>
+    <string name="text_fields_not_filled">Please fill all the fields</string>
+    <string name="text_view_map_hospital">Map:</string>
+    <string name="google_maps_not_found">Please, make sure you have Google Maps installed</string>
 </resources>
