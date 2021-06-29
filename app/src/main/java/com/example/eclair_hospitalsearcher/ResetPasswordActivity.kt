@@ -13,11 +13,14 @@ class ResetPasswordActivity : AppCompatActivity() {
     var editTextCurrentPassword: EditText? = null
     var editTextNewPassword:EditText? = null
     var editTextRepeatNewPassword:EditText? = null
+    val databaseController = DatabaseController(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reset_password)
-        var currentPassword = intent.getStringExtra("currentPassword").toString()
+        var fullName = intent.getStringExtra("fullNameProfile")
+        var currentUser = databaseController.getCurrentUser(fullName!!)
+        var currentPassword = currentUser.password
         var toast = Toast.makeText(applicationContext, currentPassword, Toast.LENGTH_SHORT)
         toast.show()
         init() //DESGRACIADOOOOOOOOOOOO
@@ -31,6 +34,7 @@ class ResetPasswordActivity : AppCompatActivity() {
 
                     val intent = Intent()
                     var newPassword = editTextNewPassword?.text.toString()
+                    databaseController.updateUser(currentUser.name, currentUser.email,newPassword,currentUser.bloodType, currentUser.dateOfBirth, currentUser.city,currentUser.gender, currentUser.phone)
                     intent.putExtra("newPassword", newPassword)
                     setResult(RESULT_OK, intent)
                     finish()

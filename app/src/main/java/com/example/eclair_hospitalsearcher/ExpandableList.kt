@@ -16,10 +16,7 @@ class ExpandableList(var context: Context, var groups:MutableList<Appointment>, 
     }
 
     override fun getChildrenCount(p0: Int): Int {
-
         return 6
-
-
     }
 
     override fun getGroup(p0: Int): Appointment {
@@ -27,15 +24,14 @@ class ExpandableList(var context: Context, var groups:MutableList<Appointment>, 
     }
 
     override fun getChild(group: Int, item: Int): String {
-
         return when(item) {
 
-            0 -> "Hospital: ${this.groups[group].hospital}"
-            1 -> "Doctor: ${this.groups[group].doctor}"
-            2 -> "Date: ${this.groups[group].date}"
-            3-> "Hour: ${this.groups[group].hour}"
-            4 -> "Room: ${this.groups[group].room}"
-            5 -> "Reason: ${this.groups[group].reason}"
+            0 -> "${appointmentsActivity.resources.getString(R.string.adapter_expandable_list_hospital)}: ${this.groups[group].hospital}"
+            1 -> "${appointmentsActivity.resources.getString(R.string.adapter_expandable_list_doctor)}: ${this.groups[group].doctor}"
+            2 -> "${appointmentsActivity.resources.getString(R.string.adapter_expandable_list_date)}: ${this.groups[group].date}"
+            3-> "${appointmentsActivity.resources.getString(R.string.adapter_expandable_list_hour)}: ${this.groups[group].hour}"
+            4 -> "${appointmentsActivity.resources.getString(R.string.adapter_expandable_list_room)}: ${this.groups[group].room}"
+            5 -> "${appointmentsActivity.resources.getString(R.string.adapter_expandable_list_reason)}: ${this.groups[group].reason}"
             else -> ""
 
 
@@ -61,41 +57,21 @@ class ExpandableList(var context: Context, var groups:MutableList<Appointment>, 
         if(p2 == null) {
             val layoutInflater:LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             p2 = layoutInflater.inflate((R.layout.layout_list_group_appointments), null)
-
         }
-
         var text:TextView = p2!!.findViewById(R.id.parent_list)
-        text.setText("Appointment ${p0+1} - ${appointment.hour}")
-
-
-
-
+        text.setText("${appointmentsActivity.resources.getString(R.string.adapter_expandable_list_appointment)} ${p0+1} - ${appointment.hour}")
         p2.setOnClickListener {
-
             if(appointmentsActivity.tabLayoutAppointments!!.getTabAt(1)!!.isSelected) {
-
                 groupClickListener?.invoke(getGroup(p0))
-
             } else {
-
                 if((p3 as ExpandableListView).isGroupExpanded(p0)) {
-
                     (p3 as ExpandableListView).collapseGroup(p0)
-
                 } else {
-
                     (p3 as ExpandableListView).expandGroup(p0, true)
-
                 }
-
-
             }
-
         }
-
-
         return p2
-
     }
 
     override fun getChildView(p0: Int, p1: Int, p2: Boolean, p3: View?, p4: ViewGroup?): View {
@@ -103,20 +79,12 @@ class ExpandableList(var context: Context, var groups:MutableList<Appointment>, 
         var textItem = getChild(p0,p1) as String
 
         if(p3 == null) {
-
             val layoutInflater:LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             p3 = layoutInflater.inflate(R.layout.layout_list_item_appointments, null)
-
         }
-
         var text:TextView = p3!!.findViewById(R.id.child_list)
         text.setText(textItem)
-
-
-
         return p3
-
-
     }
 
     override fun isChildSelectable(p0: Int, p1: Int): Boolean {
@@ -124,10 +92,6 @@ class ExpandableList(var context: Context, var groups:MutableList<Appointment>, 
     }
 
     fun setOnGroupClickListener(clickListener:(group:Appointment)->Unit) {
-
         groupClickListener = clickListener
-
     }
-
-
 }

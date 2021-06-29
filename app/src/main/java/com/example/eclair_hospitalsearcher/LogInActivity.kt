@@ -12,6 +12,8 @@ class LogInActivity : AppCompatActivity() {
     var buttonLogIn: Button? = null
     var logInInputEmail:EditText? = null
     var logInInputPassword:EditText? = null
+    var databaseController = DatabaseController(this)
+    var logInInputUserName:EditText? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,41 +29,48 @@ class LogInActivity : AppCompatActivity() {
 
         buttonLogIn?.setOnClickListener {
 
-            if(emailLogIn!!.equals(logInInputEmail?.text.toString()) && passwordLogIn!!.equals(logInInputPassword?.text.toString())) {
+            if(databaseController.checkUser(logInInputEmail?.text.toString(), logInInputPassword?.text.toString(), logInInputUserName?.text.toString())) {
 
                 val intent = Intent(this, MenuActivity::class.java)
 
+                if(fullNameLogIn==null) {
 
-                intent.putExtra("emailLogIn", emailLogIn)
-                intent.putExtra("passwordLogIn", passwordLogIn)
-                intent.putExtra("fullNameLogIn", fullNameLogIn)
-                intent.putExtra("dateOfBirthLogIn", dateOfBirthLogIn)
-                intent.putExtra("cityLogIn", cityLogIn)
-                intent.putExtra("genderLogIn", genderLogIn)
+                    fullNameLogIn = databaseController.getNameUser(logInInputUserName?.text.toString())
+
+                }
+
+                val userTest = databaseController.getCurrentUser(fullNameLogIn!!)
+
+
+                intent.putExtra("emailLogIn", userTest.email)
+                intent.putExtra("passwordLogIn", userTest.password)
+                intent.putExtra("fullNameMenu", userTest.name)
+
 
                 startActivity(intent)
             } else {
 
-                var toast = Toast.makeText(applicationContext, "E-mail o contraseña incorrecta", Toast.LENGTH_SHORT)
+                var toast = Toast.makeText(applicationContext, "E-mail,contraseña o usuario incorrectos", Toast.LENGTH_SHORT)
                 toast.show()
 
+
+
             }
 
 
-
-            }
 
         }
+
+    }
 
     fun init() {
 
         logInInputEmail = findViewById(R.id.editTextLogInEmail)
         logInInputPassword = findViewById(R.id.editTextLogInPassword)
+        logInInputUserName = findViewById(R.id.editTextUserNameLogIn)
 
     }
 
 
 
 }
-
-

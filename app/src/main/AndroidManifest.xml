@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.eclair_hospitalsearcher">
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,6 @@
         android:theme="@style/Theme.Eclair_HospitalSearcher">
         <activity android:name=".AppointmentCreationActivity"></activity>
         <activity android:name=".HospitalDescriptionActivity" />
-        <activity android:name=".EmergencyOnCallActivity" />
         <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".EmergencyActivity" />
         <activity android:name=".HospitalSearchMenuActivity" />

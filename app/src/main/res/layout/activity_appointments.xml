@@ -7,15 +7,6 @@
     android:background="@color/background"
     tools:context=".AppointmentsActivity">
 
-    <Button
-        android:id="@+id/buttonTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayoutAppointments"
         android:layout_width="match_parent"
@@ -27,12 +18,12 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Consult" />
+            android:text="@string/consult_appointmentsmenu" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delete" />
+            android:text="@string/delete_appointmentsmenu" />
 
 
 

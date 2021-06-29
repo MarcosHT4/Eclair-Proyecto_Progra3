@@ -15,7 +15,7 @@ class HospitalDescriptionActivity : AppCompatActivity() {
     var hospitalName:String? = null
     var appointmentsButton:FloatingActionButton? = null
     val defaultName = "James Cameron"
-
+    val listDoctors: List<String> = listOf("James Cameron", "Dallas Azahar", "Dr. House", "Dr. Vic", "Carolina Wieser", "Erick Saucedo", "Aaron Barrera", "William Osler", "Sigmud Freud", "Derek Styles", "Alexander Fleming")
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +44,10 @@ class HospitalDescriptionActivity : AppCompatActivity() {
 
             val intent = Intent(this, AppointmentCreationActivity::class.java)
             intent.putExtra("nameHospital", hospitalName)
-            intent.putExtra("nameDoctor", defaultName)
+
+            val nameDoctor = listDoctors.get((0..10).random())
+
+            intent.putExtra("nameDoctor", nameDoctor)
 
             val rnd = "${(0..20).random()}${('A'..'Z').random()}"
             intent.putExtra("roomAppointment", rnd)

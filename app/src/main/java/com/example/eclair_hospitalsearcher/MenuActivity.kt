@@ -19,7 +19,10 @@ class MenuActivity : AppCompatActivity() {
     var genderMenu:String = ""
     var fullNameMenu:String = ""
     var bloodType:Int = 0
+    var bloodTypeMenu:Int = 0
     var phone:String = ""
+    var phoneMenu:String = ""
+    var databaseController = DatabaseController(this)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,13 +30,11 @@ class MenuActivity : AppCompatActivity() {
         setContentView(R.layout.activity_menu)
         emailMenu = intent.getStringExtra("emailLogIn").toString()
         passwordMenu = intent.getStringExtra("passwordLogIn").toString()
-        dateOfBirthMenu = intent.getStringExtra("dateOfBirthLogIn").toString()
-        cityMenu = intent.getStringExtra("cityLogIn").toString()
-        genderMenu = intent.getStringExtra("genderLogIn").toString()
-        fullNameMenu = intent.getStringExtra("fullNameLogIn").toString()
+        fullNameMenu = intent.getStringExtra("fullNameMenu").toString()
+
         init()
 
-        var toast = Toast.makeText(applicationContext, "Bienvenido $fullNameMenu!", Toast.LENGTH_LONG)
+        var toast = Toast.makeText(applicationContext, "${resources.getString(R.string.main_menu_toast_welcome)} $fullNameMenu!", Toast.LENGTH_LONG)
         toast.show()
 
         imageAppointments?.setOnClickListener{
@@ -46,14 +47,7 @@ class MenuActivity : AppCompatActivity() {
         imageProfile?.setOnClickListener{
 
             val intent = Intent(this, ProfileActivity::class.java)
-            intent.putExtra("emailMenu", emailMenu)
-            intent.putExtra("passwordMenu", passwordMenu)
-            intent.putExtra("fullNameMenu", fullNameMenu)
-            intent.putExtra("dateOfBirthMenu", dateOfBirthMenu)
-            intent.putExtra("cityMenu", cityMenu)
-            intent.putExtra("genderMenu", genderMenu)
-            intent.putExtra("bloodType", bloodType)
-            intent.putExtra("phone", phone)
+
             startActivityForResult(intent, reqCode)
 
         }
@@ -85,12 +79,6 @@ class MenuActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode==reqCode) {
-
-            emailMenu = data?.getStringExtra("newEmail").toString()
-            dateOfBirthMenu = data?.getStringExtra("newDateOfBirth").toString()
-            phone = data?.getStringExtra("newPhone").toString()
-            bloodType = data!!.getIntExtra("newBloodType", 0)
-            passwordMenu = data?.getStringExtra("newPassword").toString()
 
 
         }

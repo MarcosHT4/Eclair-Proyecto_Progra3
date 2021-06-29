@@ -15,7 +15,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="148dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/password_signup"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,7 +27,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="Full Name"
+        android:hint="@string/full_name_signup"
         android:inputType="textCapWords"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextLogInPassword" />
@@ -38,7 +38,7 @@
         android:layout_height="42dp"
         android:layout_marginStart="8dp"
         android:ems="10"
-        android:hint="E-mail"
+        android:hint="@string/e_mail_signup"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/editTextLogInPassword"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="Date of Birth"
+        android:hint="@string/date_of_birth_signup"
         android:clickable="false"
         android:focusable = "false"
         android:inputType="date"
@@ -83,8 +83,21 @@
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:layout_marginTop="128dp"
-        android:text="Sign-In"
+        android:text="@string/sign_in_signup"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerSignUpGender" />
+
+    <EditText
+        android:id="@+id/editTextUsernameSignUp"
+        android:layout_width="400dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="@string/username_sign_up"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerSignUpGender" />
 
 

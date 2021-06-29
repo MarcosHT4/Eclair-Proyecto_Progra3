@@ -13,10 +13,9 @@ class HospitalSearchMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hospital_search_menu)
-        var details = "Tap to see details"
-        var vaccineAvailable = "Vaccine Available"
-        var vaccineUnavailable = "Vaccine Unavailable"
-
+        val details = resources.getString(R.string.details_hospitalSearchMenu)
+        val vaccineAvailable = resources.getString(R.string.vaccine_available_hospitalSearchMenu)
+        val vaccineUnavailable = resources.getString(R.string.vaccine_unavailable_hospitalSearchMenu)
 
         val recyclerView:RecyclerView = findViewById(R.id.recyclerViewHospital)
 
