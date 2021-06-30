@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="Full Name"
+        android:text="@string/full_name_profile"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +37,7 @@
         android:layout_marginTop="40dp"
         android:ems="10"
         android:inputType="date"
-        android:hint = "Date of Birth"
+        android:hint = "@string/date_of_birth_profile"
         android:clickable="false"
         android:focusable = "false"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:ems="10"
-        android:hint ="E-mail"
+        android:hint ="@string/e_mail_profile"
         android:inputType="textEmailAddress"
         app:layout_constraintTop_toBottomOf="@+id/spinnerBloodType"
         tools:layout_editor_absoluteX="102dp" />
@@ -112,7 +112,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:ems="10"
-        android:hint = "Phone"
+        android:hint = "@string/phone_profile"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmailProfile" />
@@ -129,21 +129,21 @@
 
     <Button
         android:id="@+id/buttonSaveChanges"
-        android:layout_width="136dp"
+        android:layout_width="158dp"
         android:layout_height="61dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="32dp"
-        android:text="Save Changes"
+        android:text="@string/save_changes_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
 
     <Button
         android:id="@+id/buttonResetPassword"
-        android:layout_width="134dp"
-        android:layout_height="59dp"
+        android:layout_width="154dp"
+        android:layout_height="62dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="60dp"
-        android:text="Reset Password"
+        android:text="@string/reset_password_profile"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
 

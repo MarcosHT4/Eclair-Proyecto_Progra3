@@ -24,6 +24,8 @@ class ProfileActivity : AppCompatActivity() {
     var editTextPhone:EditText? = null
     var reqCode = 555
     var password:String = ""
+    val databaseController = DatabaseController(this)
+
 
 
 
@@ -33,12 +35,18 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
         init()
+
         var fullNameProfile = intent.getStringExtra("fullNameMenu")
-        var dateOfBirthProfile = intent.getStringExtra("dateOfBirthMenu")
-        var emailProfile = intent.getStringExtra("emailMenu")
-        var phone = intent.getStringExtra("phone")
-        var bloodType = intent.getIntExtra("bloodType", 0)
-        password = intent.getStringExtra("passwordMenu").toString()
+        val currentUser = databaseController.getCurrentUser(fullNameProfile!!)
+        var emailProfile = currentUser.email
+        var password = currentUser.password
+
+
+        var dateOfBirthProfile = currentUser.dateOfBirth
+
+        var phone = currentUser.phone
+        var bloodType = currentUser.bloodType
+
         fullNameTextView?.setText(fullNameProfile)
         editTextDateBirth?.setText(dateOfBirthProfile)
         emailTextProfile?.setText(emailProfile)
@@ -70,18 +78,19 @@ class ProfileActivity : AppCompatActivity() {
         buttonSaveChanges?.setOnClickListener {
 
             val intent = Intent()
+
+            var newUser = databaseController.getCurrentUser(fullNameProfile)
             var newDateOfBirth = editTextDateBirth?.text.toString()
             var newEmail = emailTextProfile?.text.toString()
             var newPhone = editTextPhone?.text.toString()
             var newBloodType = spinnerBloodType?.selectedItemPosition
             var newPassword = password
 
+            if (newBloodType != null) {
+                databaseController.updateUser(fullNameProfile, newEmail, newUser.password, newBloodType, newDateOfBirth, newUser.city, newUser.gender,newPhone)
+            }
 
-            intent.putExtra("newDateOfBirth", newDateOfBirth)
-            intent.putExtra("newEmail", newEmail)
-            intent.putExtra("newPhone", newPhone)
-            intent.putExtra("newBloodType", newBloodType)
-            intent.putExtra("newPassword", newPassword)
+
             setResult(RESULT_OK, intent)
             finish()
 
@@ -90,7 +99,7 @@ class ProfileActivity : AppCompatActivity() {
         buttonChangePassword?.setOnClickListener {
 
             val intent = Intent(this, ResetPasswordActivity::class.java)
-            intent.putExtra("currentPassword", password)
+            intent.putExtra("fullNameProfile", fullNameProfile)
             startActivityForResult(intent, reqCode)
 
 
@@ -109,7 +118,7 @@ class ProfileActivity : AppCompatActivity() {
 
     fun onDateSelected(day:Int, month:Int, year:Int) {
 
-        editTextProfile?.setText("$day / $month / $year")
+        editTextProfile?.setText("$day / ${month+1} / $year")
 
     }
 

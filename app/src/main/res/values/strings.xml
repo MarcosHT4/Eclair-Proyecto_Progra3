@@ -37,85 +37,77 @@
 
     </string-array>
 
-    <string name="appointment_1">Appointment 1</string>
-    <string name="appointment_2">Appointment 2</string>
-    <string name="appointment_3">Appointment 3</string>
-    <string name="appointment_4">Appointment 4</string>
-    <string name="appointment_5">Appointment 5</string>
-    <string name="appointment_6">Appointment 6</string>
+    <string-array name="reason_appointments">
 
-    <string-array name="appointment_1">
-
-        <item>Hospital:</item>
-        <item>Doctor:</item>
-        <item>Date:</item>
-        <item>Hour:</item>
-        <item>Room:</item>
-        <item>Reason:</item>
+        <item>Covid-19</item>
+        <item>Standard Consultation</item>
+        <item>Long Consultation</item>
+        <item>Mental Health</item>
+        <item>Medical Certificate</item>
+        <item>General Check</item>
+        <item>Eye Check</item>
 
 
     </string-array>
 
-    <string-array name="appointment_2">
-
-        <item>Hospital:</item>
-        <item>Doctor:</item>
-        <item>Date:</item>
-        <item>Hour:</item>
-        <item>Room:</item>
-        <item>Reason:</item>
 
 
-    </string-array>
-
-    <string-array name="appointment_3">
-
-        <item>Hospital:</item>
-        <item>Doctor:</item>
-        <item>Date:</item>
-        <item>Hour:</item>
-        <item>Room:</item>
-        <item>Reason:</item>
 
 
-    </string-array>
-
-    <string-array name="appointment_4">
-
-        <item>Hospital:</item>
-        <item>Doctor:</item>
-        <item>Date:</item>
-        <item>Hour:</item>
-        <item>Room:</item>
-        <item>Reason:</item>
-
-
-    </string-array>
-
-    <string-array name="appointment_5">
-
-        <item>Hospital:</item>
-        <item>Doctor:</item>
-        <item>Date:</item>
-        <item>Hour:</item>
-        <item>Room:</item>
-        <item>Reason:</item>
-
-
-    </string-array>
-
-    <string-array name="appointment_6">
-
-        <item>Hospital:</item>
-        <item>Doctor:</item>
-        <item>Date:</item>
-        <item>Hour:</item>
-        <item>Room:</item>
-        <item>Reason:</item>
-
-
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="log_in_logup">Log-In</string>
+    <string name="sign_up_logup">Sign-Up</string>
+    <string name="e_mail_signup">E-mail</string>
+    <string name="password_signup">Password</string>
+    <string name="full_name_signup">Full Name</string>
+    <string name="date_of_birth_signup">Date of Birth</string>
+    <string name="sign_in_signup">Sign-In</string>
+    <string name="e_mail_login">E-mail</string>
+    <string name="password_login">Password</string>
+    <string name="log_in_login">log in</string>
+    <string name="forgot_your_password_login">Forgot your password?</string>
+    <string name="my_appointments_mainmenu">My Appointments</string>
+    <string name="my_profile_mainmenu">My Profile</string>
+    <string name="hospital_search_mainmenu">Hospital Search</string>
+    <string name="emergency_mainmenu">Emergency</string>
+    <string name="consult_appointmentsmenu">Consult</string>
+    <string name="delete_appointmentsmenu">Delete</string>
+    <string name="full_name_profile">Full Name</string>
+    <string name="date_of_birth_profile">Date of Birth</string>
+    <string name="e_mail_profile">E-mail</string>
+    <string name="phone_profile">Phone</string>
+    <string name="save_changes_profile">Save Changes</string>
+    <string name="reset_password_profile">Reset Password</string>
+    <string name="current_password_resetpassword">Current Password</string>
+    <string name="new_password_resetpassword">New Password</string>
+    <string name="repeat_password_resetpassword">Repeat Password</string>
+    <string name="confirm_resetpassword">Confirm</string>
+    <string name = "vaccine_available_hospitalSearchMenu">Vaccine Available</string>
+    <string name = "vaccine_unavailable_hospitalSearchMenu">Vaccine Unavailable</string>
+    <string name = "details_hospitalSearchMenu">Tap to see details</string>
+    <string name="rating_hospitalDescription">Rating:</string>
+    <string name="location_hospitalDescription">Location:</string>
+    <string name="phone_hospitalDescription">Phone:</string>
+    <string name="doctor_appointmentCreation">Doctor:</string>
+    <string name="hospital_appointmentCreation">Hospital:</string>
+    <string name="date_appointmentCreation">Date:</string>
+    <string name="hour_appointmentCreation">Hour:</string>
+    <string name="room_appointmentCreation">Room:</string>
+    <string name="reason_appointmentCreation">Reason:</string>
+    <string name="create_appointment_appointmentCreation">Create Appointment</string>
+    <string name = "instructions_title_emergency">Instructions</string>
+    <string name = "instructions_body_emergency">If you are in need of an ambulance, press the button, and we will make sure to hook you up with an emergency number.</string>
+    <string name = "main_menu_toast_welcome">Welcome</string>
+    <string name = "adapter_expandable_list_appointment">Appointment</string>
+    <string name = "adapter_expandable_list_hospital">Hospital</string>
+    <string name = "adapter_expandable_list_doctor">Doctor</string>
+    <string name = "adapter_expandable_list_date">Date</string>
+    <string name = "adapter_expandable_list_hour">Hour</string>
+    <string name = "adapter_expandable_list_room">Room</string>
+    <string name = "adapter_expandable_list_reason">Reason</string>
+    <string name="username_sign_up">Username</string>
+    <string name="username_log_in">Username</string>
+    <string name ="text_fields_not_filled">Please, fill all the fields</string>
+    <string name="text_view_map_hospital">Map:</string>
+    <string name = "google_maps_not_found">Please, make sure you have Google Maps installed</string>
 </resources>

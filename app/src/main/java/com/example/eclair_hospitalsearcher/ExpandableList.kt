@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.*
 import android.widget.BaseExpandableListAdapter
 
-class ExpandableList(var context: Context, var groups:MutableList<String>, var items:HashMap<String, MutableList<String>>, var appointmentsActivity: AppointmentsActivity): BaseExpandableListAdapter() {
+class ExpandableList(var context: Context, var groups:MutableList<Appointment>, var appointmentsActivity: AppointmentsActivity): BaseExpandableListAdapter() {
 
-    var groupClickListener: ((group: String)-> Unit)? = null
+    var groupClickListener: ((group: Appointment)-> Unit)? = null
 
     override fun getGroupCount(): Int {
         return groups.size
@@ -17,18 +17,31 @@ class ExpandableList(var context: Context, var groups:MutableList<String>, var i
 
     override fun getChildrenCount(p0: Int): Int {
 
-        return this.items.get(this.groups.get(p0))!!.size
+        return 6
 
 
     }
 
-    override fun getGroup(p0: Int): Any {
+    override fun getGroup(p0: Int): Appointment {
         return this.groups.get(p0)
     }
 
-    override fun getChild(p0: Int, p1: Int): Any {
 
-        return this.items.get(this.groups.get(p0))!!.get(p1)
+
+    override fun getChild(group: Int, item: Int): String {
+
+        return when(item) {
+
+            0 -> "${appointmentsActivity.resources.getString(R.string.adapter_expandable_list_hospital)}: ${this.groups[group].hospital}"
+            1 -> "${appointmentsActivity.resources.getString(R.string.adapter_expandable_list_doctor)}: ${this.groups[group].doctor}"
+            2 -> "${appointmentsActivity.resources.getString(R.string.adapter_expandable_list_date)}: ${this.groups[group].date}"
+            3-> "${appointmentsActivity.resources.getString(R.string.adapter_expandable_list_hour)}: ${this.groups[group].hour}"
+            4 -> "${appointmentsActivity.resources.getString(R.string.adapter_expandable_list_room)}: ${this.groups[group].room}"
+            5 -> "${appointmentsActivity.resources.getString(R.string.adapter_expandable_list_reason)}: ${this.groups[group].reason}"
+            else -> ""
+
+
+        }
 
     }
 
@@ -46,15 +59,17 @@ class ExpandableList(var context: Context, var groups:MutableList<String>, var i
 
     override fun getGroupView(p0: Int, p1: Boolean, p2: View?, p3: ViewGroup?): View {
         var p2 = p2
-        var textGroup = getGroup(p0) as String
+        var appointment = getGroup(p0)
         if(p2 == null) {
             val layoutInflater:LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             p2 = layoutInflater.inflate((R.layout.layout_list_group_appointments), null)
 
         }
 
+
+
         var text:TextView = p2!!.findViewById(R.id.parent_list)
-        text.setText(textGroup)
+        text.setText("${appointmentsActivity.resources.getString(R.string.adapter_expandable_list_appointment)} ${p0+1} - ${appointment.hour}")
 
 
 
@@ -63,7 +78,7 @@ class ExpandableList(var context: Context, var groups:MutableList<String>, var i
 
                 if(appointmentsActivity.tabLayoutAppointments!!.getTabAt(1)!!.isSelected) {
 
-                groupClickListener?.invoke(getGroup(p0) as String)
+                groupClickListener?.invoke(getGroup(p0))
 
             } else {
 
@@ -90,6 +105,7 @@ class ExpandableList(var context: Context, var groups:MutableList<String>, var i
     override fun getChildView(p0: Int, p1: Int, p2: Boolean, p3: View?, p4: ViewGroup?): View {
         var p3 = p3
         var textItem = getChild(p0,p1) as String
+
         if(p3 == null) {
 
             val layoutInflater:LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -99,6 +115,9 @@ class ExpandableList(var context: Context, var groups:MutableList<String>, var i
 
         var text:TextView = p3!!.findViewById(R.id.child_list)
         text.setText(textItem)
+
+
+
         return p3
 
 
@@ -108,7 +127,7 @@ class ExpandableList(var context: Context, var groups:MutableList<String>, var i
         return true
     }
 
-    fun setOnGroupClickListener(clickListener:(group:String)->Unit) {
+    fun setOnGroupClickListener(clickListener:(group:Appointment)->Unit) {
 
         groupClickListener = clickListener
 

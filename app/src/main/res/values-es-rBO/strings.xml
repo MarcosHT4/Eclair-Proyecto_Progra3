@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="city">
+        <item>Ciudad</item>
+        <item>Beni</item>
+        <item>Cochabamba</item>
+        <item>Chuquisaca</item>
+        <item>La Paz</item>
+        <item>Oruro</item>
+        <item>Pando</item>
+        <item>Potosi</item>
+        <item>Santa Cruz</item>
+        <item>Tarija</item>
+
+    </string-array>
+
+    <string-array name="gender">
+
+        <item>Genero</item>
+        <item>Masculino</item>
+        <item>Femenino</item>
+
+    </string-array>
+
+    <string-array name="blood_types">
+
+        <item>Tipo De Sangre</item>
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>O+</item>
+        <item>O-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+
+
+    </string-array>
+
+    <string-array name="reason_appointments">
+
+        <item>Covid-19</item>
+        <item>Consulta Estándar</item>
+        <item>Consulta de alta duración</item>
+        <item>Salud mental</item>
+        <item>Certificado médico</item>
+        <item>Revisión General</item>
+        <item>Revisión ocular</item>
+
+
+    </string-array>
+
+
+    <string name="app_name">Eclair_HospitalSearcher</string>
+    <string name="log_in_logup">Iniciar Sesión</string>
+    <string name="sign_up_logup">Registrarse</string>
+    <string name="e_mail_signup">Correo Electrónico</string>
+    <string name="password_signup">Contraseña</string>
+    <string name="full_name_signup">Nombre completo</string>
+    <string name="date_of_birth_signup">Fecha de nacimiento</string>
+    <string name="sign_in_signup">Registrarse</string>
+    <string name="e_mail_login">Correo Electrónico</string>
+    <string name="password_login">Contraseña</string>
+    <string name="log_in_login">Iniciar Sesión</string>
+    <string name="forgot_your_password_login">Olvidó su contraseña?</string>
+    <string name="my_appointments_mainmenu">Mis Citas</string>
+    <string name="my_profile_mainmenu">Mi Perfil</string>
+    <string name="hospital_search_mainmenu">Búsqueda de Hospitales</string>
+    <string name="emergency_mainmenu">Emergencias</string>
+    <string name="consult_appointmentsmenu">Consultar</string>
+    <string name="delete_appointmentsmenu">Eliminar</string>
+    <string name="full_name_profile">Nombre Completo</string>
+    <string name="date_of_birth_profile">Fecha de Nacimiento</string>
+    <string name="e_mail_profile">Correo Electrónico</string>
+    <string name="phone_profile">Teléfono</string>
+    <string name="save_changes_profile">Guardar Cambios</string>
+    <string name="reset_password_profile">Cambiar Constraseña</string>
+    <string name="current_password_resetpassword">Contraseña actual</string>
+    <string name="new_password_resetpassword">Nueva constraseña</string>
+    <string name="repeat_password_resetpassword">Repetir nueva constraseña</string>
+    <string name="confirm_resetpassword">Confirmar</string>
+    <string name="vaccine_available_hospitalSearchMenu">Vacuna Disponible</string>
+    <string name="vaccine_unavailable_hospitalSearchMenu">Vacuna No Disponible</string>
+    <string name="details_hospitalSearchMenu">" Presione para ver detalles"</string>
+    <string name="rating_hospitalDescription">Puntuación:</string>
+    <string name="location_hospitalDescription">Dirección:</string>
+    <string name="phone_hospitalDescription">Teléfono:</string>
+    <string name="doctor_appointmentCreation">Doctor:</string>
+    <string name="hospital_appointmentCreation">Hospital:</string>
+    <string name="date_appointmentCreation">Fecha:</string>
+    <string name="hour_appointmentCreation">Hora:</string>
+    <string name="room_appointmentCreation">Sala:</string>
+    <string name="reason_appointmentCreation">Motivo:</string>
+    <string name="create_appointment_appointmentCreation">Crear cita</string>
+    <string name="instructions_title_emergency">Instrucciones</string>
+    <string name="instructions_body_emergency">"Si usted necesita una ambulancia, presione el botón, y nos aseguraremos de brindarle el número de una ambulancia.  "</string>
+    <string name="main_menu_toast_welcome">Bienvenido</string>
+    <string name="adapter_expandable_list_appointment">Cita</string>
+    <string name="adapter_expandable_list_hospital">Hospital</string>
+    <string name="adapter_expandable_list_doctor">Doctor</string>
+    <string name="adapter_expandable_list_date">Fecha</string>
+    <string name="adapter_expandable_list_hour">Hora</string>
+    <string name="adapter_expandable_list_room">Sala</string>
+    <string name="adapter_expandable_list_reason">Motivo</string>
+    <string name="username_sign_up">Nombre de usuario</string>
+    <string name="username_log_in">Nombre de Usuario</string>
+    <string name="text_fields_not_filled">Por favor, llene todos los campos</string>
+    <string name="text_view_map_hospital">Mapa:</string>
+    <string name="google_maps_not_found">Por favor, asegurese de que tenga instalado Google Maps</string>
+</resources>

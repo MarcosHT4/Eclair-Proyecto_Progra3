@@ -66,13 +66,13 @@
         android:id="@+id/textViewAppointments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
         android:layout_marginTop="15dp"
-        android:text="My Appointments"
+        android:text="@string/my_appointments_mainmenu"
         android:textColor="#FFFFFF"
         android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewAppointmentsMenu"
+        app:layout_constraintStart_toStartOf="@+id/imageViewAppointmentsMenu"
         app:layout_constraintTop_toBottomOf="@+id/imageViewAppointmentsMenu" />
 
     <TextView
@@ -80,25 +80,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="60dp"
-        android:text="My Profile"
+        android:text="@string/my_profile_mainmenu"
         android:textColor="#FFFFFF"
         android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewProfileMenu"
+        app:layout_constraintStart_toStartOf="@+id/imageViewProfileMenu"
         app:layout_constraintTop_toBottomOf="@+id/imageViewProfileMenu" />
 
     <TextView
         android:id="@+id/textViewHospitalSearchMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
         android:layout_marginTop="15dp"
-        android:text="Hospital Search"
+        android:text="@string/hospital_search_mainmenu"
         android:textColor="#FBFBFB"
         android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewHospitalSearchMenu"
+        app:layout_constraintStart_toStartOf="@+id/imageViewHospitalSearchMenu"
         app:layout_constraintTop_toBottomOf="@+id/imageViewHospitalSearchMenu" />
 
     <TextView
@@ -106,11 +106,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="59dp"
-        android:text="Emergency"
+        android:text="@string/emergency_mainmenu"
         android:textColor="#FFFFFF"
         android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewEmergencyMenu"
+        app:layout_constraintStart_toStartOf="@+id/imageViewEmergencyMenu"
         app:layout_constraintTop_toBottomOf="@+id/imageViewEmergencyMenu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

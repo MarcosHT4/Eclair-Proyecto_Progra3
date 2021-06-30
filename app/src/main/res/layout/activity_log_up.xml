@@ -25,7 +25,7 @@
         android:layout_width="135dp"
         android:layout_height="68dp"
         android:layout_marginTop="468dp"
-        android:text="Log-In"
+        android:text="@string/log_in_logup"
         android:textColor="#FFFFFF"
         app:iconTint="#B52828"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,9 +36,20 @@
         android:id="@+id/buttonSignUp"
         android:layout_width="135dp"
         android:layout_height="68dp"
-        android:text="Sign-Up"
+        android:text="@string/sign_up_logup"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonLogIn" />
+
+    <Switch
+        android:id="@+id/switchLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:text="Spanish"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLogIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
