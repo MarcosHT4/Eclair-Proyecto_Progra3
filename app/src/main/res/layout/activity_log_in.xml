@@ -39,7 +39,7 @@
         android:layout_marginTop="4dp"
         android:tint="#F1EDED"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.407"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextLogInPassword"
         app:srcCompat="@drawable/icon_logo2" />
